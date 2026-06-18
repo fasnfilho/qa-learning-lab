@@ -1,0 +1,24 @@
+{
+  "name": "qa-learning-lab",
+  "version": "1.0.0",
+  "description": "Learning repository for Web Test Automation using Cypress.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fasnfilho/qa-learning-lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/fasnfilho/qa-learning-lab/issues"
+  },
+  "homepage": "https://github.com/fasnfilho/qa-learning-lab#readme",
+  "devDependencies": {
+    "cypress": "^15.17.0"
+  }
+}

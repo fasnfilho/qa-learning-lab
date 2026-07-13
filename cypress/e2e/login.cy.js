@@ -33,39 +33,47 @@ describe("Login", () => {
 
     })
 
-"include",
+    it("should display an error when username and password are empty", function () {
 
-"inventory"
+        LoginPage.clickLogin()
 
-)
+        LoginPage.verifyErrorMessage("Epic sadface: Username is required")
 
-}
+    })
 
-)
+    it("should display an error when password is empty", function () {
 
-it(
-"should reject invalid login",
+        LoginPage.typeUsername(
+            this.users.validUser.username
+        )
 
-function(){
+        LoginPage.clickLogin()
 
-LoginPage.visit()
+        LoginPage.verifyErrorMessage("Epic sadface: Password is required")
 
-LoginPage.login(
+    })
 
-this.users.invalidUser.username,
+    it("should display an error when username is empty", function () {
 
-this.users.invalidUser.password
+        LoginPage.typePassword(
+            this.users.validUser.password
+        )
 
-)
+        LoginPage.clickLogin()
 
-cy.get(
-'[data-test="error"]'
-)
+        LoginPage.verifyErrorMessage("Epic sadface: Username is required")
 
-.should(
-"exist"
-)
+    })
 
-})
+    it("should not allow a locked user to log in", function () {
+
+        LoginPage.login(
+            this.users.lockedUser.username,
+            this.users.lockedUser.password
+        )
+
+        LoginPage.verifyErrorMessage("Epic sadface: Sorry, this user has been locked out.")
+
+    })
 
 })

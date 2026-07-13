@@ -1,5 +1,5 @@
-import LoginPage from "../pages/LoginPage"
-import CartPage from "../pages/CartPage"
+import LoginPage from "../../pages/LoginPage"
+import CartPage from "../../pages/CartPage"
 
 describe("Cart", () => {
 

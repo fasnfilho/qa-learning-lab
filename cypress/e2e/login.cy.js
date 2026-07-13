@@ -1,71 +1,79 @@
 import LoginPage
 from "../pages/LoginPage"
 
-describe("Login",()=>{
+describe("Login", () => {
 
-beforeEach(function(){
+    beforeEach(function () {
 
-cy.fixture(
-"users"
-)
-.as(
-"users"
-)
+        cy.fixture("users").as("users")
 
-})
+        LoginPage.visit()
 
-it(
-"should login successfully",
+    })
 
-function(){
+    it("should login successfully", function () {
 
-LoginPage.visit()
+        LoginPage.login(
+            this.users.validUser.username,
+            this.users.validUser.password
+        )
 
-LoginPage.login(
+        LoginPage.verifyLoginSuccess()
 
-this.users.validUser.username,
+    })
 
-this.users.validUser.password
+    it("should reject invalid login", function () {
 
-)
+        LoginPage.login(
+            this.users.invalidUser.username,
+            this.users.invalidUser.password
+        )
 
-cy.url()
+        LoginPage.verifyErrorMessage("Epic sadface: Username and password do not match any user in this service")
 
-.should(
+    })
 
-"include",
+    it("should display an error when username and password are empty", function () {
 
-"inventory"
+        LoginPage.clickLogin()
 
-)
+        LoginPage.verifyErrorMessage("Epic sadface: Username is required")
 
-}
+    })
 
-)
+    it("should display an error when password is empty", function () {
 
-it(
-"should reject invalid login",
+        LoginPage.typeUsername(
+            this.users.validUser.username
+        )
 
-function(){
+        LoginPage.clickLogin()
 
-LoginPage.visit()
+        LoginPage.verifyErrorMessage("Epic sadface: Password is required")
 
-LoginPage.login(
+    })
 
-this.users.invalidUser.username,
+    it("should display an error when username is empty", function () {
 
-this.users.invalidUser.password
+        LoginPage.typePassword(
+            this.users.validUser.password
+        )
 
-)
+        LoginPage.clickLogin()
 
-cy.get(
-'[data-test="error"]'
-)
+        LoginPage.verifyErrorMessage("Epic sadface: Username is required")
 
-.should(
-"exist"
-)
+    })
 
-})
+    it("should not allow a locked user to log in", function () {
+
+        LoginPage.login(
+            this.users.lockedUser.username,
+            this.users.lockedUser.password
+        )
+
+        LoginPage.verifyErrorMessage("Epic sadface: Sorry, this user has been locked out.")
+
+    })
 
 })

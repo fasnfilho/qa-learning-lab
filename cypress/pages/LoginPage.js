@@ -33,6 +33,12 @@ class LoginPage {
         return cy.get(this.elements.errorMessage)
     }
 
+    verifyErrorMessage(message) {
+
+        this.getErrorMessage().should("have.text", message)
+
+}
+
     verifyLoginSuccess() {
         cy.url().should('include', '/inventory.html')
     }

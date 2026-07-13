@@ -1,18 +1,13 @@
 import LoginPage
 from "../pages/LoginPage"
 
-describe("Login",()=>{
+describe("Login", () => {
 
-beforeEach(function(){
+    beforeEach(function () {
 
-cy.fixture(
-"users"
-)
-.as(
-"users"
-)
+        cy.fixture("users").as("users")
 
-})
+        LoginPage.visit()
 
 it(
 "should login successfully",

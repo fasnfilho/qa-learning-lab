@@ -2,14 +2,13 @@
 
 # QA Learning Lab
 
-### 🚀 Professional Web Test Automation Project with Cypress
+### A professional end-to-end test automation project built with Cypress.
 
-Automated testing project developed to demonstrate modern Quality Assurance practices, scalable architecture and maintainable test automation using Cypress.
+[![Cypress](https://img.shields.io/badge/Cypress-Test_Automation-69D3A7?style=for-the-badge&logo=cypress&logoColor=white)](https://www.cypress.io/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 
-![Cypress](https://img.shields.io/badge/Cypress-Test%20Automation-69D3A7?style=for-the-badge&logo=cypress&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![NodeJS](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-CI-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+</div>
 
 </div>
 

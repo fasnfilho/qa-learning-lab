@@ -1,19 +1,26 @@
 class LoginPage {
 
+    elements = {
+        usernameInput: '#user-name',
+        passwordInput: '#password',
+        loginButton: '#login-button',
+        errorMessage: '[data-test="error"]'
+    }
+
     visit() {
         cy.visit('/')
     }
 
     typeUsername(username) {
-        cy.get('#user-name').type(username)
+        cy.get(this.elements.usernameInput).type(username)
     }
 
     typePassword(password) {
-        cy.get('#password').type(password)
+        cy.get(this.elements.passwordInput).type(password)
     }
 
     clickLogin() {
-        cy.get('#login-button').click()
+        cy.get(this.elements.loginButton).click()
     }
 
     login(username, password) {
@@ -23,11 +30,11 @@ class LoginPage {
     }
 
     getErrorMessage() {
-    return cy.get('[data-test="error"]')
+        return cy.get(this.elements.errorMessage)
     }
 
     verifyLoginSuccess() {
-    cy.url().should('include', '/inventory.html')
+        cy.url().should('include', '/inventory.html')
     }
 
 }

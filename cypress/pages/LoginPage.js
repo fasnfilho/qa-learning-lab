@@ -1,39 +1,34 @@
 class LoginPage {
 
-visit() {
-cy.visit("/")
-}
+    visit() {
+        cy.visit('/')
+    }
 
-fillUsername(username) {
-cy.get('[data-test="username"]')
-.type(username)
-}
+    typeUsername(username) {
+        cy.get('#user-name').type(username)
+    }
 
-fillPassword(password) {
-cy.get('[data-test="password"]')
-.type(password)
-}
+    typePassword(password) {
+        cy.get('#password').type(password)
+    }
 
-submit() {
-cy.get(
-'[data-test="login-button"]'
-)
-.click()
-}
+    clickLogin() {
+        cy.get('#login-button').click()
+    }
 
-login(username,password){
+    login(username, password) {
+        this.typeUsername(username)
+        this.typePassword(password)
+        this.clickLogin()
+    }
 
-this.fillUsername(
-username
-)
+    getErrorMessage() {
+    return cy.get('[data-test="error"]')
+    }
 
-this.fillPassword(
-password
-)
-
-this.submit()
-
-}
+    verifyLoginSuccess() {
+    cy.url().should('include', '/inventory.html')
+    }
 
 }
 

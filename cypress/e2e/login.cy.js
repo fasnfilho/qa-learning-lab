@@ -9,24 +9,29 @@ describe("Login", () => {
 
         LoginPage.visit()
 
-it(
-"should login successfully",
+    })
 
-function(){
+    it("should login successfully", function () {
 
-LoginPage.visit()
+        LoginPage.login(
+            this.users.validUser.username,
+            this.users.validUser.password
+        )
 
-LoginPage.login(
+        LoginPage.verifyLoginSuccess()
 
-this.users.validUser.username,
+    })
 
-this.users.validUser.password
+    it("should reject invalid login", function () {
 
-)
+        LoginPage.login(
+            this.users.invalidUser.username,
+            this.users.invalidUser.password
+        )
 
-cy.url()
+        LoginPage.verifyErrorMessage("Epic sadface: Username and password do not match any user in this service")
 
-.should(
+    })
 
 "include",
 

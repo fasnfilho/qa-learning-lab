@@ -49,6 +49,25 @@ describe("Inventory", () => {
 
     })
 
-    
+    it("should display an Add to cart button for every product", function () {
+
+    InventoryPage.getAddToCartButtons().should("have.length", 6).each(($button) => {
+            cy.wrap($button).should("be.visible").and("have.text", "Add to cart")
+        })
+
+    })
+
+    it("should sort products from A to Z", function () {
+
+        InventoryPage.selectSortOption("az")
+
+        InventoryPage.getProductName().then(($products) => {
+            const productNames = [...$products].map(product => product.innerText)
+            const sortedNames = [...productNames]
+            sortedNames.sort()
+            expect(productNames).to.deep.equal(sortedNames)
+        })
+
+    })
 
 })

@@ -25,6 +25,15 @@ class InventoryPage {
         return cy.get(".inventory_item_name")
     }
 
+    getAddToCartButtons() {
+    return cy.get('[data-test^="add-to-cart"]')
+    }
+
+    selectSortOption(option) {
+    cy.get('[data-test="product-sort-container"]')
+        .select(option)
+    }
+
 }
 
 export default new InventoryPage()
